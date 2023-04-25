@@ -2,19 +2,17 @@
 working with django rest framework
 
 
-## Commands
+## Install the app and the djangorestframework and initialize the shell
 
 ```
 pipenv shell
 pipenv install django 
 pipenv install djangorestframework
-python manage.py createproject crudproject .
-python manage.py startapp crudapp1
+python manage.py createproject project1 .
+python manage.py startapp app1
 ```
 
-## Install the app and the djangorestframework
-
-- To the file `crudproject/settings.py` add, the `crudapp` and the `rest_framework`
+- To the file `crudproject/settings.py` add, the `crudapp1` and the `rest_framework`
 ```
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,7 +26,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-## Created the model
+## Create the model
 
 ```
 from django.db import models
@@ -58,7 +56,7 @@ from .api import StudentViewSet
 
 router = routers.DefaultRouter()
 
-router.register('/api/students', StudentViewSet, 'students')
+router.register('api/students', StudentViewSet, 'students')
 
 urlpatterns = router.urls
 ```
