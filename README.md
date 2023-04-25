@@ -49,3 +49,46 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
+## Create the `crudapp1/urls.py`
+
+```
+from rest_framework import routers
+from .api import StudentViewSet
+# from django.http import HttpResponse
+
+router = routers.DefaultRouter()
+
+router.register('/api/students', StudentViewSet, 'students')
+
+urlpatterns = router.urls
+```
+
+## Create the `api.py` file and include the `ViewSet`
+
+```
+from .models import Student
+from rest_framework import viewsets, permissions
+from .serializers import StudentsSerializer
+
+class StudentsViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    permission_classes = [permissions.AllowAny]
+    serializer_class = StudentsSerializer
+
+```
+
+## Create the `serializers.py` file 
+
+```
+from rest_framework import serializers
+from .models import Student
+
+class StudentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        kk1 = 5454
+        fields = ('id', 'name', 'number', 'date_info')
+#       read_only_fields = ('date_info', )
+
+```
+
