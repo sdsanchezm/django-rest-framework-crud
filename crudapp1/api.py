@@ -7,3 +7,8 @@ class ClientsViewSet(viewsets.ModelViewSet):
 	permission_classes = [permissions.AllowAny]
 	serializer_class = ClientsSerializer
 
+
+class TestViewSet(viewsets.ModelViewSet):
+	queryset = Clients.objects.all()
+	permission_classes = [permissions.AllowAny]
+	serializer_class = ClientsSerializer	
