@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-## Create the model
+## Create the model https://www.django-rest-framework.org/api-guide/viewsets/
 
 ```
 from django.db import models
@@ -47,7 +47,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-## Create the `crudapp1/urls.py`
+## Create the `crudapp1/urls.py` file
 
 ```
 from rest_framework import routers
@@ -75,6 +75,13 @@ class StudentsViewSet(viewsets.ModelViewSet):
 
 ```
 
+- Documentation at [https://www.django-rest-framework.org/api-guide/viewsets/](https://www.django-rest-framework.org/api-guide/viewsets/)
+    - Options for view sets:
+        - viewsets.ViewSet
+        - viewsets.ModelViewSet
+        - viewsets.ReadOnlyModelViewSet
+
+
 ## Create the `serializers.py` file 
 
 ```
@@ -90,3 +97,5 @@ class StudentsSerializer(serializers.ModelSerializer):
 
 ```
 
+- Documentation: [https://www.django-rest-framework.org/api-guide/serializers/](https://www.django-rest-framework.org/api-guide/serializers/)
+    - 
